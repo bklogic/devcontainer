@@ -1,0 +1,67 @@
+version: "3.3"
+
+services:
+  # DevContainer
+  rdas:
+    image: "mcr.microsoft.com/devcontainers/base:alpine-3.19"
+    container_name: "rdas"
+    command: 
+      - sh
+      - -c
+      - |
+        apk update && apk add --no-cache git
+        git config --global --add safe.directory /workspaces/testfolder
+        sleep infinity
+    volumes:
+      - ../../:/workspaces:cached
+    network_mode: service:builder
+
+  # MySQL DB
+  mysql:
+    image: "mysql:8.2.0"
+    container_name: "mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysqlroot
+      # create database `classicmodels` and user `sample`. modify for your own needs.
+      - MYSQL_DATABASE=classicmodels
+      - MYSQL_USER=sample
+      - MYSQL_PASSWORD=password123
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    volumes:
+      # initialize database with sql scripts in `../.init/mysql`
+      # default to creating classicmodels tables. modify for your own needs.
+      - ../.init/mysql:/docker-entrypoint-initdb.d
+
+  # Postgres DB
+  postgres:
+    image: "postgres:15.6"
+    container_name: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+     # create database `pagila` and user `sample`
+     - POSTGRES_DB=pagila
+     - POSTGRES_USER=sample
+     - POSTGRES_PASSWORD=password123
+    restart: always
+    volumes:
+      # initialize database with sql scripts in `../.init/postgres`
+      # default to creating pagila tables. modify for your own needs.
+      - ../.init/postgres:/docker-entrypoint-initdb.d
+
+  # DevServer
+  builder:
+    image: "public.ecr.aws/backlogic/service-builder:latest"
+    container_name: "builder"
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.profiles.active=prod
+      - runtime.engine.hikari-cp-config.maximumPoolSize=5
+    restart: "unless-stopped"

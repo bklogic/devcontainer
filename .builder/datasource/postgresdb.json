@@ -1,0 +1,10 @@
+{
+    "dbType": "postgresql",
+    "host": "postgres",
+    "port": 5432,
+    "database": "pagila",
+    "username": "sample",
+    "password": "*********",
+    "ssl": false,
+    "comments": "Complete host, port, database, username and password. Test data source using TEST button."
+}

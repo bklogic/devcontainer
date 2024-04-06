@@ -1,0 +1,10 @@
+{
+    "dbType": "mysql",
+    "host": "mysql",
+    "port": 3306,
+    "database": "classicmodels",
+    "username": "sample",
+    "password": "*********",
+    "ssl": true,
+    "comments": "Complete host, port, database, username and password. Test data source using TEST button."
+}
