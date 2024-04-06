@@ -4,7 +4,7 @@
     "port": 5432,
     "database": "pagila",
     "username": "sample",
-    "password": "*********",
+    "password": "password123",
     "ssl": false,
     "comments": "Complete host, port, database, username and password. Test data source using TEST button."
 }
