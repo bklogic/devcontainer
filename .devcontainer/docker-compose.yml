@@ -15,7 +15,7 @@ services:
     volumes:
       - ../../:/workspaces:cached
       - ~/.ssh:/home/vscode/.ssh
-    network_mode: service:builder
+    network_mode: service:devtime
 
   # MySQL DB
   mysql:
@@ -57,9 +57,9 @@ services:
       - ../.init/postgres:/docker-entrypoint-initdb.d
 
   # DevServer
-  builder:
+  devtime:
     image: "public.ecr.aws/backlogic/service-builder:latest"
-    container_name: "builder"
+    container_name: "devtime"
     ports:
       - "8080:8080"
     environment:
