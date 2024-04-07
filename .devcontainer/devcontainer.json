@@ -3,7 +3,7 @@
 {
 	"name": "builder",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "rdas",
+	"service": "builder",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"shutdownAction": "stopCompose",
 		
