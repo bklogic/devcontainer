@@ -33,7 +33,7 @@ This project creates a development environment on your local machine for data ac
 Clone this project with the following commands:
 
 ```sh
-git clone git@github.com:bklogic/devcontainer.git builder
+git clone git@github.com:bklogic/service-builder-devcontainer.git builder
 cd builder
 ```
 
