@@ -2,9 +2,9 @@ version: "3.3"
 
 services:
   # DevContainer
-  rdas:
+  builder:
     image: "mcr.microsoft.com/devcontainers/base:alpine-3.19"
-    container_name: "rdas"
+    container_name: "builder"
     command: 
       - sh
       - -c
