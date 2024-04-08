@@ -21,7 +21,7 @@ This project creates a development environment on your local machine for data ac
 
 - Docker installed locally.
 - Git and Git Bash installed locally.
-- VS Code installed locally.
+- VS Code (version 1.87.0 or later) installed locally.
 - Familiar with VS Code and Dev Container.
 
 [VS Code DevContainer Overview](https://code.visualstudio.com/docs/devcontainers/containers)
