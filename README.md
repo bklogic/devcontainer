@@ -81,7 +81,7 @@ Click the `Service Builder` icon ![service-builder](.images/service-builder-icon
 
 ### Register Service Builder with Dev Server
 
-Registering the Service Builder with the Dev Server creates and connects the Service Builder with a workspace on the Dev Server.
+Registering the Service Builder with the Dev Server creates and connects the Service Builder to a workspace on the Dev Server.
 
 - Click the `Applications` bar, then the `more` icon `...`, and select `Register Builder`.
 
@@ -91,26 +91,13 @@ Registering the Service Builder with the Dev Server creates and connects the Ser
 
 The Service Builder is registered with the Dev Server.
 
+### What is Next?
 
-## Troubleshoot
+If you are not yet familiar with `Service Builder` and `Data Access Services (DAS)`, please proceed to:
 
-In case of error when reopening the project in container, 
+[Get Started with Service Builder](https://www.backlogic.net/docs/getting-started/service-builder/), and  
 
-- list the docker containers:
-
-    ```
-    docker ps -a
-    ```
-
-- remove dev container `builder`, if exists, so that it can be rebuild:
-
-    ```
-    docker rm builder
-    ```
-
-- reopen project in container
-
-> Note: There may be situations where you also need to first remove the `devtime`, `mysql` and `postgres` containers.
+[Get Started with Data Access Services](https://www.backlogic.net/docs/getting-started/data-access-service/).
 
 
 ## File Structure
@@ -208,3 +195,27 @@ In case of error when reopening the project in container,
 
 > Note: you may replaces the SQL scripts in the `.init` folders with your own.
 
+
+## Troubleshoot
+
+In case of error when reopening the project in container, 
+
+- list the docker containers:
+
+    ```
+    docker ps -a
+    ```
+
+- remove dev container `builder`, if exists, so that it can be rebuild:
+
+    ```
+    docker rm builder
+    ```
+
+- reopen project in container
+
+> Note: There may be times where you also need to first remove the `devtime`, `mysql` and `postgres` containers.
+
+## Issues and Feedback
+
+[BackLogic Project Discussions](https://github.com/bklogic/backlogic-project/discussions/categories/general) 
